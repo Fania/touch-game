@@ -5,18 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game</title>
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+    body {
+      margin: 0;
+    }
+
     #story {
-      padding: 10px;
-      height: 500px;
+      padding: 50px;
       position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
     [id^="polaroid"] {
-      display: inline-block;
+      display: none;
       background: beige;
+      margin: 0;
       padding: 20px;
       box-shadow: 10px 10px 10px gray;
       position: absolute;
+    }
+
+    .show {
+      display: block;
     }
 
     [id^="polaroid"] img {
@@ -34,71 +51,71 @@
       font-family: 'Permanent Marker', cursive;
     }
 
-    .rotate-left {
-      transform: rotate(30deg) scale(0.8);
+    [class*="rotate"] {
       transition: 1s;
-      margin-left: 400px;
-    /*   cursor: e-resize; */
       opacity: 0;
       z-index: 10;
     }
     .rotate-right {
-      transform: rotate(-30deg) scale(0.8);
-      transition: 1s;
-      opacity: 0;
-      margin-left: -400px;
-    /*   cursor: w-resize; */
-      z-index: 10;
+      transform: rotate(30deg) scale(0.8);
+      margin-left: 400px;
     }
-
-
-    @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+    .rotate-left {
+      transform: rotate(-30deg) scale(0.8);
+      margin-left: -400px;
+    }
+    .rotate-up {
+      transform: rotate(5deg) scale(0.8);
+      margin-top: -400px;
+    }
+    .rotate-down {
+      transform: rotate(-5deg) scale(0.8);
+      margin-top: 400px;
+    }
   </style>
 </head>
 <body>
   
   <section id="story">
 
-    <!-- NOTE REVERSE ORDER OF POLAROIDS -->
-
-    <figure id="polaroid8">
+    <figure id="polaroid1" class="show">
       <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
-      <figcaption>8. Mountains</figcaption>
-    </figure>
-
-    <figure id="polaroid7">
-      <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
-      <figcaption>7. Mountains</figcaption>
-    </figure>
-
-    <figure id="polaroid6">
-      <img src="https://images.unsplash.com/photo-1552313197-93bc4445c270?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-      <figcaption>6. City</figcaption>
-    </figure>
-
-    <figure id="polaroid5">
-      <img src="https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-      <figcaption>5. Forest</figcaption>
-    </figure>
-
-    <figure id="polaroid4">
-      <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
-      <figcaption>4. Mountains</figcaption>
-    </figure>
-
-    <figure id="polaroid3">
-      <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
-      <figcaption>3. Mountains</figcaption>
+      <figcaption>1. Mountains</figcaption>
     </figure>
 
     <figure id="polaroid2">
-      <img src="https://images.unsplash.com/photo-1552313197-93bc4445c270?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-      <figcaption>2. City</figcaption>
+      <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
+      <figcaption>2. Mountains</figcaption>
     </figure>
 
-    <figure id="polaroid1">
+    <figure id="polaroid3">
+      <img src="https://images.unsplash.com/photo-1552313197-93bc4445c270?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+      <figcaption>3. City</figcaption>
+    </figure>
+
+    <figure id="polaroid4">
       <img src="https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-      <figcaption>1. Forest</figcaption>
+      <figcaption>4. Forest</figcaption>
+    </figure>
+
+    <figure id="polaroid5">
+      <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
+      <figcaption>5. Mountains</figcaption>
+    </figure>
+
+    <figure id="polaroid6">
+      <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=eb9893e527fa8cd97cb29e216b7da793">
+      <figcaption>6. Mountains</figcaption>
+    </figure>
+
+    <figure id="polaroid7">
+      <img src="https://images.unsplash.com/photo-1552313197-93bc4445c270?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+      <figcaption>7. City</figcaption>
+    </figure>
+
+    <figure id="polaroid8">
+      <img src="https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+      <figcaption>8. Forest</figcaption>
     </figure>
     
   </section>
@@ -109,41 +126,61 @@
 <script>
 
 const polas = document.querySelectorAll("[id^='polaroid']");
+const txt = document.getElementById("text");
 
-// const rev = polas.reverse();
-// console.log(rev);
+const nextId = (c, d) => {
+  let n = 0;
+  switch(c) {
+    case 1: n=2; break;
+    case 2: d=="left" ? n=3 : n=4; break;
+    case 3: d=="left" ? n=5 : n=6; break;
+    case 4: d=="left" ? n=7 : n=8; break;
+    case 5: n=3; break;
+    case 6: d=="left" ? n=7 : n=2; break;
+    case 7: n=8; break;
+    case 8: n=1; break;
+    default: n = 1;
+  }
+  return n;
+}
 
-const next = (ev, dir, n) => {
-  console.log(ev, dir, n);
+
+const move = (ev, dir) => {
+  let cId = "";
+  if(ev.target.id) {
+    cId = ev.target.id;
+  } else {
+    cId = ev.srcEvent.path[1].id;
+  }
+  const c = parseInt(cId[8]);
+  const nId = `polaroid${nextId(c, dir)}`;
+  const currentElem = document.getElementById(cId);
+  const nextElem = document.getElementById(nId);
+  nextElem.classList.value = "";
+  currentElem.classList.add("rotate-" + dir);
+  nextElem.classList.add("show");
 }
 
 
 for (let i=0; i < polas.length; i++) {
   const mc = new Hammer(polas[i]);
   const cap = document.querySelector(`figure#${polas[i].id} figcaption`);
+  mc.get('swipe').set({ enable: true, direction: Hammer.DIRECTION_ALL });
 
-  mc.on("swipeleft", (ev) => {
-    cap.innerText = ev.type;
-    polas[i].classList.add("rotate-right");
-  });
-  mc.on("swiperight", (ev) => {
-    cap.innerText = ev.type;
-    polas[i].classList.add("rotate-left");
-  });
-  // mc.on("tap", (ev) => {
-  //   next(ev, "left", i+1);
+  mc.on("swipeleft",  (ev) => { move(ev, "left");  });
+  mc.on("swiperight", (ev) => { move(ev, "right"); });
+  mc.on("swipeup",    (ev) => { move(ev, "up");    });
+  mc.on("swipedown",  (ev) => { move(ev, "down");  });
+
+  // let pinch = new Hammer.Pinch();
+  // mc.add([pinch]);
+  // mc.on("pinchin", (ev) => {
+  //   next(ev, "in"); console.log("pinchin");
   // });
-  
-  // switch(i % 2 == 0) {
-  //   case true:
-  //     cap.innerText = "even";
-  //     break;
-  //   case false:
-  //     cap.innerText = "odd";
-  //     break;
-  //   default:
-  //     cap.innerText = "default";
-  // }
+  // mc.on("pinchout", (ev) => {
+  //   next(ev, "out"); console.log("pinchout");
+  // });
+
 }
 
 </script>
